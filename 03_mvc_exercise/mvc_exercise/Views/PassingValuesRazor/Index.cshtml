@@ -29,6 +29,21 @@
 
 
 
+        <!-- Form em Razor -->
+
+        @using(Html.BeginForm())
+        {
+            @Html.TextBox("name")
+
+            <input type="submit" value="OK" />
+        }
+
+        @ViewBag.X
+
+
+
+
+
     </div>
 </body>
 </html>

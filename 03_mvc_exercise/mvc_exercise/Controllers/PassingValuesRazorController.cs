@@ -9,9 +9,19 @@ namespace mvc_exercise.Controllers
     public class PassingValuesRazorController : Controller
     {
         // GET: PassingValues
-        public ActionResult Index()
+        public ActionResult Index(string name)
         {
-            ViewBag.X = "hello, everyone!";
+
+            if (string.IsNullOrEmpty(name))
+            {
+                ViewBag.X = "hello, everyone!";
+            }
+            else
+            {
+                ViewBag.X = $"hello, {name}!";
+            }
+            
+            
             return View();
         }
     }
