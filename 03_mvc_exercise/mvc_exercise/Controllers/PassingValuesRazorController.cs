@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace mvc_exercise.Controllers
 {
-    public class PassingValuesController : Controller
+    public class PassingValuesRazorController : Controller
     {
         // GET: PassingValues
         public ActionResult Index()
