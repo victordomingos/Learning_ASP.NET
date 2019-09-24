@@ -1,0 +1,35 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Calc</title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm())
+        {
+            <p>Qty.:</p>
+            @Html.TextBox("quantity");
+            @ViewBag.qtyMsg;
+            
+
+            <p>Price:</p>
+            @Html.TextBox("price");
+            @ViewBag.priceMsg;
+
+           <p>Please pay this amount:</p>
+           @Html.TextBox("result");
+           
+
+            <input type="submit" name="name" value="Calculate!" />
+
+        }
+    </div>
+</body>
+</html>
