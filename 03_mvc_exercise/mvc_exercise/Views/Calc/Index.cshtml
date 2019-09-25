@@ -14,17 +14,16 @@
     <div>
         @using (Html.BeginForm())
         {
-            <p>Qty.:</p>
-            @Html.TextBox("quantity");
-            @ViewBag.qtyMsg;
+            <p>Qty.: @Html.TextBox("quantity") 
+            @ViewBag.qtyMsg</p>
             
 
-            <p>Price:</p>
-            @Html.TextBox("price");
-            @ViewBag.priceMsg;
+            <p>Price: @Html.TextBox("price")
+                @ViewBag.priceMsg
+            </p>
 
-           <p>Please pay this amount:</p>
-           @Html.TextBox("result");
+            <p>Please pay this amount: @Html.TextBox("result")
+            </p>
            
 
             <input type="submit" name="name" value="Calculate!" />

@@ -13,7 +13,7 @@ namespace mvc_exercise.Controllers
         {
 
             bool status;
-            ViewBag.result = 0;
+            ViewBag.result = 0.0;
 
             if (string.IsNullOrEmpty(quantity))
             {
@@ -34,7 +34,7 @@ namespace mvc_exercise.Controllers
 
 
             status = float.TryParse(quantity, out float f_quantity);
-            if(status && float.TryParse(quantity, out float f_price))
+            if(status && float.TryParse(price, out float f_price))
             {
                 ViewBag.result = f_quantity * f_price;
             }
