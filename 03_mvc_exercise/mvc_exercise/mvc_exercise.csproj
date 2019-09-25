@@ -107,6 +107,7 @@
     <Content Include="Views\Default\Index.cshtml" />
     <Content Include="Views\PassingValuesRazor\Index.cshtml" />
     <Content Include="Views\Calc\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\NPK Debug.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
