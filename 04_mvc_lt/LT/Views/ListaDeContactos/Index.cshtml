@@ -31,10 +31,11 @@
     }
 
 
+    string newSortByID = ViewBag.sortByID == "true" ? "false" : "true";
+    string newSortByCliente = ViewBag.sortByCliente == "true" ? "false" : "true";
+    string newSortByTelefone = ViewBag.sortByTelefone == "true" ? "false" : "true";
+    string newSortByEmail = ViewBag.sortByEmail == "true" ? "false" : "true";
 }
-
-
-
 
 
 <table class="table">
@@ -42,16 +43,16 @@
 
     <tr>
         <th>
-            @Html.ActionLink(Html.DisplayNameFor(model => model.ID).ToString(), "Index", new { sortByID = "true" })
+            @Html.ActionLink(Html.DisplayNameFor(model => model.ID).ToString(), "Index", new { sortByID = newSortByID })
         </th>
         <th>
-            @Html.ActionLink(Html.DisplayNameFor(model => model.Cliente).ToString(), "Index", new { sortByCliente = "true" })
+            @Html.ActionLink(Html.DisplayNameFor(model => model.Cliente).ToString(), "Index", new { sortByCliente = newSortByCliente })
         </th>
         <th>
-            @Html.ActionLink(Html.DisplayNameFor(model => model.Telefone).ToString(), "Index", new { sortByTelefone = "true" })
+            @Html.ActionLink(Html.DisplayNameFor(model => model.Telefone).ToString(), "Index", new { sortByTelefone = newSortByTelefone })
         </th>
         <th>
-            @Html.ActionLink(Html.DisplayNameFor(model => model.Email).ToString(), "Index", new { sortByEmail = "true" })
+            @Html.ActionLink(Html.DisplayNameFor(model => model.Email).ToString(), "Index", new { sortByEmail = newSortByEmail })
         </th>
         <th></th>
     </tr>

@@ -19,33 +19,40 @@ namespace LT.Controllers
         public ActionResult Index(string txt_pesquisa, string sortByID, string sortByCliente, string sortByTelefone, string sortByEmail)
         {
             var T = from s in db.Tcontactos select s;
+            ViewBag.sortByID = sortByID;
+            ViewBag.sortByCliente = sortByCliente;
+            ViewBag.sortByTelefone = sortByTelefone;
+            ViewBag.sortByEmail = sortByEmail;
+
 
             if (!string.IsNullOrEmpty(txt_pesquisa))
             {
-                ViewBag.txt_pesquisa = txt_pesquisa;
-               
+                ViewBag.txt_pesquisa = txt_pesquisa;               
                 T = T.Where(s => s.Cliente.ToUpper().Contains(txt_pesquisa));
-               
             }
+
+
             if (sortByID == "true")
-            {
-                T = T.OrderBy(tabela => tabela.ID);
-            }
-            else if (sortByCliente == "true")
-            {
-                T = T.OrderBy(tabela => tabela.Cliente);
-            }
-            else if (sortByTelefone == "true")
-            {
-                T = T.OrderBy(tabela => tabela.Telefone);
-            }
-            else if (sortByEmail == "true")
-            {
-                T = T.OrderBy(tabela => tabela.Email);
-            }
+                {  T = T.OrderBy(tabela => tabela.ID); }
+            else if(sortByID == "false")
+                { T = T.OrderByDescending(tabela => tabela.ID); }
+
+            if (sortByCliente == "true")
+                { T = T.OrderBy(tabela => tabela.Cliente); }
+            else if (sortByCliente == "false")
+                { T = T.OrderByDescending(tabela => tabela.Cliente);}
+
+            if (sortByTelefone == "true")
+                { T = T.OrderBy(tabela => tabela.Telefone); }
+            else if (sortByTelefone == "false")
+                { T = T.OrderByDescending(tabela => tabela.Telefone); }
+            
+            if (sortByEmail == "true")
+                { T = T.OrderBy(tabela => tabela.Email); }
+            else if (sortByEmail == "false")
+                { T = T.OrderByDescending(tabela => tabela.Email); }
 
             return View(T.ToList());
-
         }
 
         // GET: ListaDeContactos/Details/5
