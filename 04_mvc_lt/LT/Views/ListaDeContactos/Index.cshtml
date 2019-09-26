@@ -42,16 +42,16 @@
 
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.ID)
+            @Html.ActionLink(Html.DisplayNameFor(model => model.ID).ToString(), "Index", new { sortByID = "true" })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Cliente)
+            @Html.ActionLink(Html.DisplayNameFor(model => model.Cliente).ToString(), "Index", new { sortByCliente = "true" })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Telefone)
+            @Html.ActionLink(Html.DisplayNameFor(model => model.Telefone).ToString(), "Index", new { sortByTelefone = "true" })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Email)
+            @Html.ActionLink(Html.DisplayNameFor(model => model.Email).ToString(), "Index", new { sortByEmail = "true" })
         </th>
         <th></th>
     </tr>

@@ -16,22 +16,36 @@ namespace LT.Controllers
         private DbContactos db = new DbContactos();
 
         // GET: ListaDeContactos
-        public ActionResult Index(string txt_pesquisa)
+        public ActionResult Index(string txt_pesquisa, string sortByID, string sortByCliente, string sortByTelefone, string sortByEmail)
         {
             var T = from s in db.Tcontactos select s;
 
-            if (string.IsNullOrEmpty(txt_pesquisa))
-            {
-                return View(T.ToList());
-            }
-            else
+            if (!string.IsNullOrEmpty(txt_pesquisa))
             {
                 ViewBag.txt_pesquisa = txt_pesquisa;
                
                 T = T.Where(s => s.Cliente.ToUpper().Contains(txt_pesquisa));
-                return View(T.ToList());
+               
             }
-            
+            if (sortByID == "true")
+            {
+                T = T.OrderBy(tabela => tabela.ID);
+            }
+            else if (sortByCliente == "true")
+            {
+                T = T.OrderBy(tabela => tabela.Cliente);
+            }
+            else if (sortByTelefone == "true")
+            {
+                T = T.OrderBy(tabela => tabela.Telefone);
+            }
+            else if (sortByEmail == "true")
+            {
+                T = T.OrderBy(tabela => tabela.Email);
+            }
+
+            return View(T.ToList());
+
         }
 
         // GET: ListaDeContactos/Details/5
