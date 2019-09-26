@@ -18,14 +18,18 @@ namespace LT.Controllers
         // GET: ListaDeContactos
         public ActionResult Index(string txt_pesquisa)
         {
+            var T = from s in db.Tcontactos select s;
+
             if (string.IsNullOrEmpty(txt_pesquisa))
             {
-                return View(db.Tcontactos.ToList());
+                return View(T.ToList());
             }
             else
             {
                 ViewBag.txt_pesquisa = txt_pesquisa;
-                return View(db.Tcontactos.ToList());
+               
+                T = T.Where(s => s.Cliente.ToUpper().Contains(txt_pesquisa));
+                return View(T.ToList());
             }
             
         }
