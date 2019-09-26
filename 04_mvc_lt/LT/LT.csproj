@@ -123,6 +123,11 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Web.config" />
+    <Content Include="Views\ListaDeContactos\Create.cshtml" />
+    <Content Include="Views\ListaDeContactos\Delete.cshtml" />
+    <Content Include="Views\ListaDeContactos\Details.cshtml" />
+    <Content Include="Views\ListaDeContactos\Edit.cshtml" />
+    <Content Include="Views\ListaDeContactos\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -131,6 +136,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201909260909251_InitialCreate.cs" />
+    <Compile Include="Migrations\201909260909251_InitialCreate.Designer.cs">
+      <DependentUpon>201909260909251_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909260926083_Email.cs" />
+    <Compile Include="Migrations\201909260926083_Email.Designer.cs">
+      <DependentUpon>201909260926083_Email.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ListaDeContactos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -139,11 +153,6 @@
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\ListaDeContactos\Create.cshtml" />
-    <Content Include="Views\ListaDeContactos\Delete.cshtml" />
-    <Content Include="Views\ListaDeContactos\Details.cshtml" />
-    <Content Include="Views\ListaDeContactos\Edit.cshtml" />
-    <Content Include="Views\ListaDeContactos\Index.cshtml" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
     <None Include="Web.Debug.config">
@@ -155,6 +164,14 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201909260909251_InitialCreate.resx">
+      <DependentUpon>201909260909251_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909260926083_Email.resx">
+      <DependentUpon>201909260926083_Email.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

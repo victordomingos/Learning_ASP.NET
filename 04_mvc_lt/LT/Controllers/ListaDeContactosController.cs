@@ -16,9 +16,18 @@ namespace LT.Controllers
         private DbContactos db = new DbContactos();
 
         // GET: ListaDeContactos
-        public ActionResult Index()
+        public ActionResult Index(string txt_pesquisa)
         {
-            return View(db.Tcontactos.ToList());
+            if (string.IsNullOrEmpty(txt_pesquisa))
+            {
+                return View(db.Tcontactos.ToList());
+            }
+            else
+            {
+                ViewBag.txt_pesquisa = txt_pesquisa;
+                return View(db.Tcontactos.ToList());
+            }
+            
         }
 
         // GET: ListaDeContactos/Details/5
@@ -47,7 +56,7 @@ namespace LT.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Cliente,Telefone")] ListaDeContactos listaDeContactos)
+        public ActionResult Create([Bind(Include = "ID,Cliente,Telefone,Email")] ListaDeContactos listaDeContactos)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +88,7 @@ namespace LT.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Cliente,Telefone")] ListaDeContactos listaDeContactos)
+        public ActionResult Edit([Bind(Include = "ID,Cliente,Telefone,Email")] ListaDeContactos listaDeContactos)
         {
             if (ModelState.IsValid)
             {
