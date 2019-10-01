@@ -1,0 +1,23 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <ul>
+            @foreach (var item in (List<CP.Models.Categoria>)ViewBag.LISTAGEM)
+            {
+                <li>@item.Nome</li>
+            }
+        </ul>
+    </div>
+</body>
+</html>
