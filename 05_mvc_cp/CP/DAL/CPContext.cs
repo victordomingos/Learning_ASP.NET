@@ -8,7 +8,7 @@ using System.Data.Entity;
 
 namespace CP.DAL
 {
-    public class CPContext
+    public class CPContext: DbContext
     {
         public DbSet<Categoria> Tcategorias { get; set; }
 
