@@ -125,9 +125,11 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Web.config" />
+    <Content Include="Views\Acerca\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AcercaController.cs" />
     <Compile Include="Controllers\EquipasController.cs" />
     <Compile Include="DAL\victor_EquipasContext.cs" />
     <Compile Include="Global.asax.cs">
