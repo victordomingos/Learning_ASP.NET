@@ -109,6 +109,8 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="Properties\PublishProfiles\NPK - Batata - Debug.pubxml" />
+    <None Include="Properties\PublishProfiles\NPK -Godady - Release.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -134,6 +136,10 @@
     <Compile Include="Migrations\201910031038124_Initial_DB_Ssetup.cs" />
     <Compile Include="Migrations\201910031038124_Initial_DB_Ssetup.Designer.cs">
       <DependentUpon>201910031038124_Initial_DB_Ssetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910031134097_Initial_DB_Ssetup1.cs" />
+    <Compile Include="Migrations\201910031134097_Initial_DB_Ssetup1.Designer.cs">
+      <DependentUpon>201910031134097_Initial_DB_Ssetup1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Equipa.cs" />
@@ -164,6 +170,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201910031038124_Initial_DB_Ssetup.resx">
       <DependentUpon>201910031038124_Initial_DB_Ssetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910031134097_Initial_DB_Ssetup1.resx">
+      <DependentUpon>201910031134097_Initial_DB_Ssetup1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -13,7 +13,7 @@ namespace PE.Controllers
 {
     public class EquipasController : Controller
     {
-        private Victor_EquipasContext db = new Victor_EquipasContext();
+        private readonly Victor_EquipasContext db = new Victor_EquipasContext();
 
         // GET: Equipas
         public ActionResult Index()
