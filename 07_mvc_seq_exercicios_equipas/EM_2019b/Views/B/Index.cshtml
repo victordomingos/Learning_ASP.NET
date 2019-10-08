@@ -1,0 +1,25 @@
+﻿@model IEnumerable<EquipaMembros2019.Models.Equipa>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Ciclo @@foreach em Razor</h2>
+
+@*Recebe viewbag e faz cast para o modelo "Equipa"*@
+
+ 
+<p>
+   <br /><br />
+</p>
+
+<ul>
+    @using EquipaMembros2019.Models
+    @foreach (var item in (List<Equipa>)ViewBag.EQUIPAS)
+    {
+        <li>
+            @item.NomeEquipa
+        </li>
+    }
+</ul>
+
