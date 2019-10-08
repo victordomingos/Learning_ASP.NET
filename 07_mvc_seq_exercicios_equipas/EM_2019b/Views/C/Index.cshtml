@@ -1,0 +1,26 @@
+﻿@model IEnumerable<EquipaMembros2019.Models.Equipa>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Droplist</h2>
+
+<br />
+<br />
+<p>
+    Listar equipas numa Droplist.
+</p>
+
+@Html.DropDownList("drop_sel_equipas", (SelectList)ViewBag.EQUIPAS, " - Selecionar equipa - ")
+
+
+
+<br /><br />
+
+<p>
+    Listar membros numa Droplist (ainda sem filtragem por equipa).
+</p>
+
+@Html.DropDownList("drop_sel_membros", (SelectList)ViewBag.MEMBROS, " - Selecionar membro - ")
+
