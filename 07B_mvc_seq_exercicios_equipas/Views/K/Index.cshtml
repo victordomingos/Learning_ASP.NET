@@ -1,0 +1,52 @@
+﻿@model IEnumerable<EquipaMembros2019.Models.Membro>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.DropDownList("equipa_id", (SelectList)@ViewBag.LISTA,
+            htmlAttributes: new { @class = "form-control", @onchange = "this.form.submit();"})
+}
+
+
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Equipa.NomeEquipa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NomeMembro)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Equipa.NomeEquipa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeMembro)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>

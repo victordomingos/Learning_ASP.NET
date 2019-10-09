@@ -137,6 +137,7 @@
     <Compile Include="Controllers\DController.cs" />
     <Compile Include="Controllers\EquipasController.cs" />
     <Compile Include="Controllers\JController.cs" />
+    <Compile Include="Controllers\KController.cs" />
     <Compile Include="Controllers\MembroesController.cs" />
     <Compile Include="DAL\EquipasContext.cs" />
     <Compile Include="Global.asax.cs">
@@ -168,6 +169,11 @@
     <Content Include="Views\J\Details.cshtml" />
     <Content Include="Views\J\Edit.cshtml" />
     <Content Include="Views\J\Index.cshtml" />
+    <Content Include="Views\K\Create.cshtml" />
+    <Content Include="Views\K\Delete.cshtml" />
+    <Content Include="Views\K\Details.cshtml" />
+    <Content Include="Views\K\Edit.cshtml" />
+    <Content Include="Views\K\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
