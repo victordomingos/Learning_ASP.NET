@@ -1,0 +1,34 @@
+﻿@model EquipaMembros2019.Models.Membro
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Membro</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Equipa.NomeEquipa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Equipa.NomeEquipa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeMembro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomeMembro)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

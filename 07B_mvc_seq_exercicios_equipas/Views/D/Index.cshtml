@@ -1,0 +1,16 @@
+﻿<br />
+<br />
+<br />
+<h2>
+    Lista as equipas (classe modelo Equipa) numa drop;
+    testa qual a equipa selecionada, guardando o Id.
+</h2>
+<br />
+<br />
+@using (Html.BeginForm())
+{
+    @Html.DropDownList("id", (SelectList)ViewBag.EQUIPAS)
+    <input id="Button1" type="submit" value="ATUALIZAR PÁGINA" />
+    <label>id do registo clicado @ViewBag.id</label>
+}
+
