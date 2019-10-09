@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "I - Alguns Exercícios com LINQ";
+}
+
+<h2>I</h2>
+
+@using EquipaMembros2019.Models;
+
+
+<h3>Listar todas as equipas:</h3>
+
+@foreach (var item in (List<Equipa>)ViewBag.TODOS)
+{
+    @item.NomeEquipa <label> | </label>
+}
+
+
+
+
+<hr />
+<h3>Contar o nº de equipas:</h3>
+<p><b>Total:</b> @ViewBag.NUM_EQUIPAS equipas </p>
+
+
+
+
+<hr />
+<h3>Listar todas as equipas, por ordem alfabética:</h3>
+
+@foreach (var item in (List<Equipa>)ViewBag.TODOS_ALFA)
+{
+    @item.NomeEquipa <label> | </label>
+}
+
+
+
+
+<hr />
+<h3>Listar todas as equipas, por ordem alfabética inversa:</h3>
+
+
+@foreach (var item in (List<Equipa>)ViewBag.TODOS_ALFA_DESC)
+{@item.NomeEquipa <label> | </label>}
+
+
+<hr />
+<h3>Qual é o nome da equipa nº 3?</h3>
+<p>@ViewBag.THREE_NAME</p>
+
+
+<hr />
+<h3>Qual é o nome da equipa nº 88 (nota: registo inexistente)?</h3>
+<p>@ViewBag.UNKOWN_NAME</p>
+
+
+<hr />
+<h3>Qual é o primeiro registo?</h3>
+<p>@ViewBag.FIRST_RECORD</p>
+
+
+<hr />
+<h3>Existe(m) equipa(s) chamada(s) "Arsenal da Devesa"?</h3>
+<p>@ViewBag.ARSENAL</p>

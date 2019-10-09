@@ -14,7 +14,7 @@
 
 @using (Html.BeginForm())
 {
-    @Html.DropDownList("equipa_id", (SelectList)@ViewBag.LISTA,
+    @Html.DropDownList("equipa_id", (SelectList)@ViewBag.LISTA, " - Selecionar equipa - ", 
             htmlAttributes: new { @class = "form-control", @onchange = "this.form.submit();"})
 }
 

@@ -136,6 +136,7 @@
     <Compile Include="Controllers\CController.cs" />
     <Compile Include="Controllers\DController.cs" />
     <Compile Include="Controllers\EquipasController.cs" />
+    <Compile Include="Controllers\IController.cs" />
     <Compile Include="Controllers\JController.cs" />
     <Compile Include="Controllers\KController.cs" />
     <Compile Include="Controllers\MembroesController.cs" />
@@ -174,6 +175,7 @@
     <Content Include="Views\K\Details.cshtml" />
     <Content Include="Views\K\Edit.cshtml" />
     <Content Include="Views\K\Index.cshtml" />
+    <Content Include="Views\I\I.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
