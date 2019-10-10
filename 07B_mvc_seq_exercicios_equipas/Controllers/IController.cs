@@ -94,7 +94,14 @@ namespace EquipaMembros2019.Controllers
                     .Where(m => m.Equipa.NomeEquipa == "Arsenal da Devesa")
                     .Count();
             
-            
+            //// Alternativa:
+
+            //int cod_equipa = db.Tequipas.FirstOrDefault(i => i.NomeEquipa == "Arsenal da Devesa").Id;  //localizar chave primária da equipa
+            //ViewBag.MEMBROS_ARSENAL = db.Tmembros                                                      //
+            //        .Where(m => m.Equipa.Id == cod_equipa)
+            //        .Count();
+
+
             return View();
         }
     }
