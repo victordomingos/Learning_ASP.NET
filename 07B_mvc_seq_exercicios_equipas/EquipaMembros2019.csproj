@@ -175,7 +175,9 @@
     <Content Include="Views\K\Details.cshtml" />
     <Content Include="Views\K\Edit.cshtml" />
     <Content Include="Views\K\Index.cshtml" />
-    <Content Include="Views\I\I.cshtml" />
+    <Content Include="Views\I\Index.cshtml">
+      <BrowseToURL>~/I/I</BrowseToURL>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

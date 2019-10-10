@@ -13,7 +13,7 @@ namespace EquipaMembros2019.Controllers
         private EquipasContext db = new EquipasContext();
         
         // GET: I
-        public ActionResult I()
+        public ActionResult Index()
         {
             // Listar todas as equipas
             var lista_de_equipas = from e in db.Tequipas select e;
@@ -58,7 +58,7 @@ namespace EquipaMembros2019.Controllers
 
             // Existe(m) equipa(s) chamada(s) "Arsenal da Devesa"?
             string nome = "Arsenal da Devesa";
-            var lista_arsenal = db.Tequipas.Where(eq => eq.NomeEquipa.Equals(nome)).ToList();
+            var lista_arsenal = db.Tequipas.Where(eq => eq.NomeEquipa.Contains(nome)).ToList();
             int num_regs = lista_arsenal.Count();
             
             if(num_regs == 0) 
@@ -74,8 +74,8 @@ namespace EquipaMembros2019.Controllers
                 string lista_ids = "";
                 for (int i = 0; i < lista_arsenal.Count(); i++)
                 {
-                    lista_ids += $"{lista_arsenal[i].ToString()}";
-                    if (i < lista_arsenal.Count())
+                    lista_ids += $"{lista_arsenal[i].Id.ToString()}";
+                    if (i < lista_arsenal.Count()-1)
                         { lista_ids += ", ";}
                 }
 
@@ -83,12 +83,18 @@ namespace EquipaMembros2019.Controllers
             }
 
 
+            // Quantos membros tem a equipa 4?
+            ViewBag.MEMBROS_EQ4 = db.Tmembros
+                    .Where(m => m.Equipa.Id == 4)
+                    .Count();
 
 
-
-
-
-
+            // Quantos membros tem a equi+a Arsenal da Devesa?
+            ViewBag.MEMBROS_ARSENAL = db.Tmembros
+                    .Where(m => m.Equipa.NomeEquipa == "Arsenal da Devesa")
+                    .Count();
+            
+            
             return View();
         }
     }
