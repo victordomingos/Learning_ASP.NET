@@ -9,7 +9,12 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-2">
-            @Html.ActionLink("Criar Nova", "Create")
+
+            @Html.ActionLink("Criar Nova", "Create", null, null, new { @class = "btn btn-primary" })
+            <!--
+    "Delete", "DeleteList", )
+    class="btn btn-primary"
+        -->
         </div>
 
         <div class="col-sm-10">
@@ -20,7 +25,7 @@
                     @Html.RadioButton("filtro", "Todas", true) <label>Todas&nbsp;&nbsp;</label>
                     @Html.RadioButton("filtro", "Terminadas") <label>Terminadas&nbsp;&nbsp;</label>
                     @Html.RadioButton("filtro", "Pendentes") <label>Pendentes&nbsp;&nbsp;</label>
-                    <input type="submit" name="btn_atualizar" value="Atualizar" />
+                    <input type="submit" name="btn_atualizar" value="Atualizar" class="btn btn-primary"/>
                 </p>
                 <p align="right">
                     <small>A mostrar @ViewBag.TAREFAS_FILTRADAS de @ViewBag.TOTAL_TAREFAS tarefas (@ViewBag.FILTRO).</small>
