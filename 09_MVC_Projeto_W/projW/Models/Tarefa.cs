@@ -15,19 +15,20 @@ namespace projW.Models
         [Display(Name = "Equipa")]
         public string Equipa { get; set; }
                 
-        [Display(Name = "DataRegisto")]
+        [Display(Name = "Data")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString ="{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime DataRegisto { get; set; }
 
-        [Display(Name = "DataLimite")]
+        [Display(Name = "Prazo")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime DataLimite { get; set; }
 
-        [Display(Name = "Coima?")]
+        [Display(Name = "Coima")]
         public bool SujeitaCoima { get; set; }
 
+        [Display(Name = "Prioridade")]
         public string TipoImportancia { get; set; }
 
         public string Descritivo { get; set; }

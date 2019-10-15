@@ -19,11 +19,10 @@ namespace projW.Controllers
         public ActionResult Index(String filtro)
         {
             ViewBag.TOTAL_TAREFAS = db.Tarefas.Count();
-            if (string.IsNullOrEmpty(ViewBag.FILTRO))
+            if (string.IsNullOrEmpty(filtro))
                 { ViewBag.FILTRO = "Todas"; }
             else
                 { ViewBag.FILTRO = filtro; }
-              
             
 
             switch (filtro)
