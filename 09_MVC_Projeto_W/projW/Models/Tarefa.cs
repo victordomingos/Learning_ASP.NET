@@ -14,9 +14,7 @@ namespace projW.Models
         public string Titulo { get; set; }
         [Display(Name = "Equipa")]
         public string Equipa { get; set; }
-
-        
-        
+                
         [Display(Name = "DataRegisto")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString ="{0:yyyy-MM-dd}")]

@@ -1,0 +1,82 @@
+﻿@model projW.Models.Tarefa
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Tarefa</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Titulo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Titulo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Equipa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Equipa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataRegisto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataRegisto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataLimite)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataLimite)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SujeitaCoima)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SujeitaCoima)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoImportancia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoImportancia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descritivo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descritivo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
