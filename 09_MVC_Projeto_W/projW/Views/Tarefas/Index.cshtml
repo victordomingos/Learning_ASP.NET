@@ -1,14 +1,35 @@
 ﻿@model IEnumerable<projW.Models.Tarefa>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Tarefas";
 }
 
-<h2>Index</h2>
+<h2>Tarefas</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2">
+            @Html.ActionLink("Criar Nova", "Create")
+        </div>
+
+        <div class="col-sm-10">
+            @using (Html.BeginForm())
+            {
+                <p align="right">
+                    <label>Mostrar:</label>
+                    @Html.RadioButton("filtro", "Todas", true) <label>Todas&nbsp;&nbsp;</label>
+                    @Html.RadioButton("filtro", "Terminadas") <label>Terminadas&nbsp;&nbsp;</label>
+                    @Html.RadioButton("filtro", "Pendentes") <label>Pendentes&nbsp;&nbsp;</label>
+                    <input type="submit" name="btn_atualizar" value="Atualizar" />
+                </p>
+                <p align="right">
+                    <small>A mostrar @ViewBag.TAREFAS_FILTRADAS de @ViewBag.TOTAL_TAREFAS tarefas (@ViewBag.FILTRO).</small>
+                </p>
+            }
+        </div>
+    </div>
+</div>
+
 <table class="table">
     <tr>
         <th>
@@ -65,9 +86,9 @@
             @Html.DisplayFor(modelItem => item.Estado)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.ActionLink("Editar", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.ID })
         </td>
     </tr>
 }

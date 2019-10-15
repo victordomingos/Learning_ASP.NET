@@ -17,12 +17,12 @@ namespace projW.Models
                 
         [Display(Name = "DataRegisto")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString ="{0:yyyy-MM-dd}")]
+        [DisplayFormat(DataFormatString ="{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime DataRegisto { get; set; }
 
         [Display(Name = "DataLimite")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime DataLimite { get; set; }
 
         [Display(Name = "Coima?")]

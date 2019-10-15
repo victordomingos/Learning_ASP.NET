@@ -14,11 +14,42 @@ namespace projW.Controllers
     public class TarefasController : Controller
     {
         private DbGesTarefas db = new DbGesTarefas();
-
+        private List<Tarefa> lista;
         // GET: Tarefas
-        public ActionResult Index()
+        public ActionResult Index(String filtro)
         {
-            return View(db.Tarefas.ToList());
+            ViewBag.TOTAL_TAREFAS = db.Tarefas.Count();
+            if (string.IsNullOrEmpty(ViewBag.FILTRO))
+                { ViewBag.FILTRO = "Todas"; }
+            else
+                { ViewBag.FILTRO = filtro; }
+              
+            
+
+            switch (filtro)
+            {
+                case "Terminadas":
+                    lista = db.Tarefas.Where(t => t.Estado.Equals(true)).ToList();
+                    ViewBag.RADIO_TODAS = 0;
+                    ViewBag.RADIO_TERMINADAS = 1;
+                    ViewBag.RADIO_PENDENTES = 0;
+                    break;
+                case "Pendentes":
+                    lista = db.Tarefas.Where(t => t.Estado.Equals(false)).ToList();
+                    ViewBag.RADIO_TODAS = 0;
+                    ViewBag.RADIO_TERMINADAS = 0;
+                    ViewBag.RADIO_PENDENTES = 1;
+                    break;
+                case "Todas": default:
+                    lista = db.Tarefas.ToList();
+                    ViewBag.RADIO_TODAS = 1;
+                    ViewBag.RADIO_TERMINADAS = 0;
+                    ViewBag.RADIO_PENDENTES = 0;
+                    break;
+            }
+            ViewBag.TAREFAS_FILTRADAS = lista.Count();
+
+            return View(lista.ToList());
         }
 
         // GET: Tarefas/Details/5
