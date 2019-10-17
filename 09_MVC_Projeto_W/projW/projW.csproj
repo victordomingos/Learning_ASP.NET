@@ -129,7 +129,7 @@
     <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TarefasController.cs" />
-    <Compile Include="DAL\DbGesTarefas.cs" />
+    <Compile Include="DAL\victor_DbGesTarefas.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

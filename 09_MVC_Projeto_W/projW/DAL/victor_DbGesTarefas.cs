@@ -7,7 +7,7 @@ using System.Web;
 
 namespace projW.DAL
 {
-    public class DbGesTarefas : DbContext
+    public class victor_DbGesTarefas : DbContext
     {
         public DbSet<Tarefa> Tarefas { get; set; }
 

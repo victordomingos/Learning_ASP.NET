@@ -13,7 +13,7 @@ namespace projW.Controllers
 {
     public class TarefasController : Controller
     {
-        private DbGesTarefas db = new DbGesTarefas();
+        private victor_DbGesTarefas db = new victor_DbGesTarefas();
 
         // GET: Tarefas
         public ActionResult Index()
