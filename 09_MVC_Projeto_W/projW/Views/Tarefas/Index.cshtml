@@ -22,16 +22,32 @@
             {
                 <p align="right">
                     <label>Mostrar:</label>
-                    @Html.RadioButton("filtro", "Todas", true) <label>Todas&nbsp;&nbsp;</label>
-                    @Html.RadioButton("filtro", "Terminadas") <label>Terminadas&nbsp;&nbsp;</label>
-                    @Html.RadioButton("filtro", "Pendentes") <label>Pendentes&nbsp;&nbsp;</label>
-                    <input type="submit" name="btn_atualizar" value="Atualizar" class="btn btn-primary"/>
                 </p>
                 <p align="right">
-                    <small>A mostrar @ViewBag.TAREFAS_FILTRADAS de @ViewBag.TOTAL_TAREFAS tarefas (@ViewBag.FILTRO).</small>
+                    @Html.RadioButton("filtro_estado", "todas", true) <label>Todas&nbsp;&nbsp;</label>
+                    @Html.RadioButton("filtro_estado", "terminadas") <label>Terminadas&nbsp;&nbsp;</label>
+                    @Html.RadioButton("filtro_estado", "pendentes") <label>Pendentes&nbsp;&nbsp;</label>
                 </p>
-            }
-        </div>
+
+
+                <p align="right">
+                    @Html.RadioButton("filtro_coima", "com e sem coima", true) <label>Com e sem coima&nbsp;&nbsp;</label>
+                    @Html.RadioButton("filtro_coima", "com coima") <label>Com coima&nbsp;&nbsp;</label>
+                    @Html.RadioButton("filtro_coima", "cem coima") <label>Sem Coima&nbsp;&nbsp;</label>
+
+                </p>
+                <label>Pesquisar: </label>@Html.TextBox("txt_pesquisa")
+                <p align="right">
+                    <input type="submit" name="btn_atualizar" value="Atualizar" class="btn btn-primary" /><br />
+                    <small>
+                    @if (!String.IsNullOrEmpty(ViewBag.FILTRO_PESQUISA))
+                    {
+                        <span>Resultado da pesquisa por "@ViewBag.FILTRO_PESQUISA".</span>
+                    }
+                    A mostrar @ViewBag.TAREFAS_FILTRADAS de @ViewBag.TOTAL_TAREFAS tarefas (@ViewBag.FILTRO_ESTADO, @ViewBag.FILTRO_COIMA).</small>
+                </p>
+                }
+            </div>
     </div>
 </div>
 

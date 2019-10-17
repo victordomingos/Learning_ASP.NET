@@ -16,36 +16,75 @@ namespace projW.Controllers
         private DbGesTarefas db = new DbGesTarefas();
         private List<Tarefa> lista;
         // GET: Tarefas
-        public ActionResult Index(String filtro)
+        public ActionResult Index(String filtro_estado, String filtro_coima, String txt_pesquisa)
         {
             ViewBag.TOTAL_TAREFAS = db.Tarefas.Count();
-            if (string.IsNullOrEmpty(filtro))
-                { ViewBag.FILTRO = "Todas"; }
+            if (string.IsNullOrEmpty(filtro_estado))
+                { ViewBag.FILTRO_ESTADO = "todas"; }
             else
-                { ViewBag.FILTRO = filtro; }
+                { ViewBag.FILTRO_ESTADO = filtro_estado; }
             
 
-            switch (filtro)
+            switch (filtro_estado)
             {
-                case "Terminadas":
+                case "terminadas":
                     lista = db.Tarefas.Where(t => t.Estado.Equals(true)).ToList();
                     ViewBag.RADIO_TODAS = 0;
                     ViewBag.RADIO_TERMINADAS = 1;
                     ViewBag.RADIO_PENDENTES = 0;
                     break;
-                case "Pendentes":
+                case "pendentes":
                     lista = db.Tarefas.Where(t => t.Estado.Equals(false)).ToList();
                     ViewBag.RADIO_TODAS = 0;
                     ViewBag.RADIO_TERMINADAS = 0;
                     ViewBag.RADIO_PENDENTES = 1;
                     break;
-                case "Todas": default:
+                case "todas": default:
                     lista = db.Tarefas.ToList();
                     ViewBag.RADIO_TODAS = 1;
                     ViewBag.RADIO_TERMINADAS = 0;
                     ViewBag.RADIO_PENDENTES = 0;
                     break;
             }
+
+
+            if (string.IsNullOrEmpty(filtro_coima))
+                { ViewBag.FILTRO_COIMA = "com e sem coima"; }
+            else
+                { ViewBag.FILTRO_COIMA = filtro_coima; }
+
+            switch (filtro_coima)
+            {
+                case "com coima":
+                    lista = lista.Where(t => t.SujeitaCoima.Equals(true)).ToList();
+                    ViewBag.RADIO_TODAS = 0;
+                    ViewBag.RADIO_TERMINADAS = 1;
+                    ViewBag.RADIO_PENDENTES = 0;
+                    break;
+                case "cem coima":
+                    lista = db.Tarefas.Where(t => t.SujeitaCoima.Equals(false)).ToList();
+                    ViewBag.RADIO_TODAS = 0;
+                    ViewBag.RADIO_TERMINADAS = 0;
+                    ViewBag.RADIO_PENDENTES = 1;
+                    break;
+                case "com e sem coima":
+                default:
+                    lista = lista.ToList();
+                    ViewBag.RADIO_TODAS = 1;
+                    ViewBag.RADIO_TERMINADAS = 0;
+                    ViewBag.RADIO_PENDENTES = 0;
+                    break;
+            }
+
+            if (string.IsNullOrEmpty(txt_pesquisa))
+                { ViewBag.FILTRO_PESQUISA = ""; }
+            else
+            { 
+                ViewBag.FILTRO_PESQUISA = txt_pesquisa;
+                lista = lista.Where(t => t.Titulo.Contains(txt_pesquisa)).ToList();
+            }
+
+
             ViewBag.TAREFAS_FILTRADAS = lista.Count();
 
             return View(lista.ToList());
