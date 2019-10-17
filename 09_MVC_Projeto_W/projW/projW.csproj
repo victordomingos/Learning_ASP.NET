@@ -126,19 +126,24 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TarefasController.cs" />
     <Compile Include="DAL\DbGesTarefas.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201910150845119_InitialMigration.cs" />
-    <Compile Include="Migrations\201910150845119_InitialMigration.Designer.cs">
-      <DependentUpon>201910150845119_InitialMigration.cs</DependentUpon>
+    <Compile Include="Migrations\201910171107019_v0.2.cs" />
+    <Compile Include="Migrations\201910171107019_v0.2.Designer.cs">
+      <DependentUpon>201910171107019_v0.2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201910171053323_v0.2.cs" />
-    <Compile Include="Migrations\201910171053323_v0.2.Designer.cs">
-      <DependentUpon>201910171053323_v0.2.cs</DependentUpon>
+    <Compile Include="Migrations\201910171112311_v0.2.1.cs" />
+    <Compile Include="Migrations\201910171112311_v0.2.1.Designer.cs">
+      <DependentUpon>201910171112311_v0.2.1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910171121429_v0.2.2.cs" />
+    <Compile Include="Migrations\201910171121429_v0.2.2.Designer.cs">
+      <DependentUpon>201910171121429_v0.2.2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cliente.cs" />
@@ -186,6 +191,11 @@
     <Content Include="Views\Tarefas\Details.cshtml" />
     <Content Include="Views\Tarefas\Edit.cshtml" />
     <Content Include="Views\Tarefas\Index.cshtml" />
+    <Content Include="Views\Clientes\Create.cshtml" />
+    <Content Include="Views\Clientes\Delete.cshtml" />
+    <Content Include="Views\Clientes\Details.cshtml" />
+    <Content Include="Views\Clientes\Edit.cshtml" />
+    <Content Include="Views\Clientes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -206,11 +216,14 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201910150845119_InitialMigration.resx">
-      <DependentUpon>201910150845119_InitialMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201910171107019_v0.2.resx">
+      <DependentUpon>201910171107019_v0.2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910171053323_v0.2.resx">
-      <DependentUpon>201910171053323_v0.2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201910171112311_v0.2.1.resx">
+      <DependentUpon>201910171112311_v0.2.1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910171121429_v0.2.2.resx">
+      <DependentUpon>201910171121429_v0.2.2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

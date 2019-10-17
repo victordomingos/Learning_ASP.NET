@@ -3,10 +3,19 @@ namespace projW.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialMigration : DbMigration
+    public partial class v02 : DbMigration
     {
         public override void Up()
         {
+            CreateTable(
+                "dbo.Clientes",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Nome = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
             CreateTable(
                 "dbo.Tarefas",
                 c => new
@@ -20,14 +29,20 @@ namespace projW.Migrations
                         TipoImportancia = c.String(),
                         Descritivo = c.String(),
                         Estado = c.Boolean(nullable: false),
+                        ClienteID = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.ID);
+                .PrimaryKey(t => t.ID)
+                .ForeignKey("dbo.Clientes", t => t.ClienteID, cascadeDelete: true)
+                .Index(t => t.ClienteID);
             
         }
         
         public override void Down()
         {
+            DropForeignKey("dbo.Tarefas", "ClienteID", "dbo.Clientes");
+            DropIndex("dbo.Tarefas", new[] { "ClienteID" });
             DropTable("dbo.Tarefas");
+            DropTable("dbo.Clientes");
         }
     }
 }

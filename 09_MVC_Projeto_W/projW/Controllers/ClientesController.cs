@@ -11,112 +11,107 @@ using projW.Models;
 
 namespace projW.Controllers
 {
-    public class TarefasController : Controller
+    public class ClientesController : Controller
     {
         private DbGesTarefas db = new DbGesTarefas();
 
-        // GET: Tarefas
+        // GET: Clientes
         public ActionResult Index()
         {
-            var tarefas = db.Tarefas.Include(t => t.Cliente);
-            return View(tarefas.ToList());
+            return View(db.Clientes.ToList());
         }
 
-        // GET: Tarefas/Details/5
+        // GET: Clientes/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Tarefa tarefa = db.Tarefas.Find(id);
-            if (tarefa == null)
+            Cliente cliente = db.Clientes.Find(id);
+            if (cliente == null)
             {
                 return HttpNotFound();
             }
-            return View(tarefa);
+            return View(cliente);
         }
 
-        // GET: Tarefas/Create
+        // GET: Clientes/Create
         public ActionResult Create()
         {
-            ViewBag.ClienteID = new SelectList(db.Clientes, "Id", "Nome");
             return View();
         }
 
-        // POST: Tarefas/Create
+        // POST: Clientes/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Titulo,Equipa,DataRegisto,DataLimite,SujeitaCoima,TipoImportancia,Descritivo,Estado,ClienteID")] Tarefa tarefa)
+        public ActionResult Create([Bind(Include = "Id,Nome")] Cliente cliente)
         {
             if (ModelState.IsValid)
             {
-                db.Tarefas.Add(tarefa);
+                db.Clientes.Add(cliente);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ClienteID = new SelectList(db.Clientes, "Id", "Nome", tarefa.ClienteID);
-            return View(tarefa);
+            return View(cliente);
         }
 
-        // GET: Tarefas/Edit/5
+        // GET: Clientes/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Tarefa tarefa = db.Tarefas.Find(id);
-            if (tarefa == null)
+            Cliente cliente = db.Clientes.Find(id);
+            if (cliente == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.ClienteID = new SelectList(db.Clientes, "Id", "Nome", tarefa.ClienteID);
-            return View(tarefa);
+            return View(cliente);
         }
 
-        // POST: Tarefas/Edit/5
+        // POST: Clientes/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Titulo,Equipa,DataRegisto,DataLimite,SujeitaCoima,TipoImportancia,Descritivo,Estado,ClienteID")] Tarefa tarefa)
+        public ActionResult Edit([Bind(Include = "Id,Nome")] Cliente cliente)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(tarefa).State = EntityState.Modified;
+                db.Entry(cliente).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ClienteID = new SelectList(db.Clientes, "Id", "Nome", tarefa.ClienteID);
-            return View(tarefa);
+            return View(cliente);
         }
 
-        // GET: Tarefas/Delete/5
+        // GET: Clientes/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Tarefa tarefa = db.Tarefas.Find(id);
-            if (tarefa == null)
+            Cliente cliente = db.Clientes.Find(id);
+            if (cliente == null)
             {
                 return HttpNotFound();
             }
-            return View(tarefa);
+            return View(cliente);
         }
 
-        // POST: Tarefas/Delete/5
+        // POST: Clientes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Tarefa tarefa = db.Tarefas.Find(id);
-            db.Tarefas.Remove(tarefa);
+            Cliente cliente = db.Clientes.Find(id);
+            db.Clientes.Remove(cliente);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

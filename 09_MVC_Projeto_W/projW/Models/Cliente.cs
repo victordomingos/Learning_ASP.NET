@@ -8,7 +8,7 @@ namespace projW.Models
     public class Cliente
     {
         public int Id { get; set; }
-        public int Nome { get; set; }
+        public string Nome { get; set; }
 
 
         public ICollection<Tarefa> Tarefas { get; set; }
