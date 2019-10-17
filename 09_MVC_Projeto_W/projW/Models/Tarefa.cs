@@ -37,6 +37,8 @@ namespace projW.Models
 
 
 
+        public int ClienteID { get; set; }
+        public virtual Cliente Cliente { get; set; }
 
     }
 }

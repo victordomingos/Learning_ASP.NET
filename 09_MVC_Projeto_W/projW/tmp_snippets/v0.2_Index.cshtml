@@ -1,0 +1,117 @@
+﻿@model IEnumerable<projW.Models.Tarefa>
+
+@{
+    ViewBag.Title = "Tarefas";
+}
+
+<h2>Tarefas</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2">
+
+            @Html.ActionLink("Criar Nova", "Create", null, null, new { @class = "btn btn-primary" })
+            <!--
+    "Delete", "DeleteList", )
+    class="btn btn-primary"
+        -->
+        </div>
+
+        <div class="col-sm-10">
+            @using (Html.BeginForm())
+            {
+                <p align="right">
+                    <label>Mostrar:</label>
+                </p>
+                <p align="right">
+                    @Html.RadioButton("filtro_estado", "todas", true) <label>Todas&nbsp;&nbsp;</label>
+                    @Html.RadioButton("filtro_estado", "terminadas") <label>Terminadas&nbsp;&nbsp;</label>
+                    @Html.RadioButton("filtro_estado", "pendentes") <label>Pendentes&nbsp;&nbsp;</label>
+                </p>
+
+
+                <p align="right">
+                    @Html.RadioButton("filtro_coima", "com e sem coima", true) <label>Com e sem coima&nbsp;&nbsp;</label>
+                    @Html.RadioButton("filtro_coima", "com coima") <label>Com coima&nbsp;&nbsp;</label>
+                    @Html.RadioButton("filtro_coima", "cem coima") <label>Sem Coima&nbsp;&nbsp;</label>
+
+                </p>
+                <label>Pesquisar: </label>@Html.TextBox("txt_pesquisa")
+                <p align="right">
+                    <input type="submit" name="btn_atualizar" value="Atualizar" class="btn btn-primary" /><br />
+                    <small>
+                    @if (!String.IsNullOrEmpty(ViewBag.FILTRO_PESQUISA))
+                    {
+                        <span>Resultado da pesquisa por "@ViewBag.FILTRO_PESQUISA".</span>
+                    }
+                    A mostrar @ViewBag.TAREFAS_FILTRADAS de @ViewBag.TOTAL_TAREFAS tarefas (@ViewBag.FILTRO_ESTADO, @ViewBag.FILTRO_COIMA).</small>
+                </p>
+                }
+            </div>
+    </div>
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Titulo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Equipa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataRegisto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataLimite)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SujeitaCoima)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TipoImportancia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descritivo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Estado)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Titulo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Equipa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataRegisto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataLimite)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SujeitaCoima)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TipoImportancia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descritivo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Estado)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

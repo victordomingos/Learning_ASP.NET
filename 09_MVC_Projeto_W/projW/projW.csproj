@@ -136,7 +136,12 @@
     <Compile Include="Migrations\201910150845119_InitialMigration.Designer.cs">
       <DependentUpon>201910150845119_InitialMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910171053323_v0.2.cs" />
+    <Compile Include="Migrations\201910171053323_v0.2.Designer.cs">
+      <DependentUpon>201910171053323_v0.2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Tarefa.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -203,6 +208,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201910150845119_InitialMigration.resx">
       <DependentUpon>201910150845119_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910171053323_v0.2.resx">
+      <DependentUpon>201910171053323_v0.2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

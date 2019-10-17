@@ -11,6 +11,7 @@ namespace projW.DAL
     {
         public DbSet<Tarefa> Tarefas { get; set; }
 
+        public DbSet<Cliente> Clientes { get; set; }
 
     }
 }
