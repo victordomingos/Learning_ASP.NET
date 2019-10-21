@@ -11,11 +11,35 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Cliente.Nome)
+            @Html.DisplayNameFor(model => model.Cliente.NomeCliente)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Cliente.Nome)
+            @Html.DisplayFor(model => model.Cliente.NomeCliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Funcionario.NomeFuncionario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Funcionario.NomeFuncionario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoPrioridade.DesignacaoPrioridade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoPrioridade.DesignacaoPrioridade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoTarefa.DesignacaoTipoTarefa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoTarefa.DesignacaoTipoTarefa)
         </dd>
 
         <dt>
@@ -56,14 +80,6 @@
 
         <dd>
             @Html.DisplayFor(model => model.SujeitaCoima)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TipoImportancia)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TipoImportancia)
         </dd>
 
         <dt>

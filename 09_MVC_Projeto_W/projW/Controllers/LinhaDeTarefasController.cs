@@ -11,107 +11,112 @@ using projW.Models;
 
 namespace projW.Controllers
 {
-    public class ClientesController : Controller
+    public class LinhaDeTarefasController : Controller
     {
         private victor_DbGesTarefas db = new victor_DbGesTarefas();
 
-        // GET: Clientes
+        // GET: LinhaDeTarefas
         public ActionResult Index()
         {
-            return View(db.Clientes.ToList());
+            var linhaDeTarefa = db.LinhaDeTarefa.Include(l => l.Tarefa);
+            return View(linhaDeTarefa.ToList());
         }
 
-        // GET: Clientes/Details/5
+        // GET: LinhaDeTarefas/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cliente cliente = db.Clientes.Find(id);
-            if (cliente == null)
+            LinhaDeTarefa linhaDeTarefa = db.LinhaDeTarefa.Find(id);
+            if (linhaDeTarefa == null)
             {
                 return HttpNotFound();
             }
-            return View(cliente);
+            return View(linhaDeTarefa);
         }
 
-        // GET: Clientes/Create
+        // GET: LinhaDeTarefas/Create
         public ActionResult Create()
         {
+            ViewBag.TarefaID = new SelectList(db.Tarefas, "ID", "Titulo");
             return View();
         }
 
-        // POST: Clientes/Create
+        // POST: LinhaDeTarefas/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,NomeCliente,CodigoInternoCliente")] Cliente cliente)
+        public ActionResult Create([Bind(Include = "Id,Descritivo,DataDaLinha,TarefaID")] LinhaDeTarefa linhaDeTarefa)
         {
             if (ModelState.IsValid)
             {
-                db.Clientes.Add(cliente);
+                db.LinhaDeTarefa.Add(linhaDeTarefa);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(cliente);
+            ViewBag.TarefaID = new SelectList(db.Tarefas, "ID", "Titulo", linhaDeTarefa.TarefaID);
+            return View(linhaDeTarefa);
         }
 
-        // GET: Clientes/Edit/5
+        // GET: LinhaDeTarefas/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cliente cliente = db.Clientes.Find(id);
-            if (cliente == null)
+            LinhaDeTarefa linhaDeTarefa = db.LinhaDeTarefa.Find(id);
+            if (linhaDeTarefa == null)
             {
                 return HttpNotFound();
             }
-            return View(cliente);
+            ViewBag.TarefaID = new SelectList(db.Tarefas, "ID", "Titulo", linhaDeTarefa.TarefaID);
+            return View(linhaDeTarefa);
         }
 
-        // POST: Clientes/Edit/5
+        // POST: LinhaDeTarefas/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,NomeCliente,CodigoInternoCliente")] Cliente cliente)
+        public ActionResult Edit([Bind(Include = "Id,Descritivo,DataDaLinha,TarefaID")] LinhaDeTarefa linhaDeTarefa)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(cliente).State = EntityState.Modified;
+                db.Entry(linhaDeTarefa).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(cliente);
+            ViewBag.TarefaID = new SelectList(db.Tarefas, "ID", "Titulo", linhaDeTarefa.TarefaID);
+            return View(linhaDeTarefa);
         }
 
-        // GET: Clientes/Delete/5
+        // GET: LinhaDeTarefas/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cliente cliente = db.Clientes.Find(id);
-            if (cliente == null)
+            LinhaDeTarefa linhaDeTarefa = db.LinhaDeTarefa.Find(id);
+            if (linhaDeTarefa == null)
             {
                 return HttpNotFound();
             }
-            return View(cliente);
+            return View(linhaDeTarefa);
         }
 
-        // POST: Clientes/Delete/5
+        // POST: LinhaDeTarefas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Cliente cliente = db.Clientes.Find(id);
-            db.Clientes.Remove(cliente);
+            LinhaDeTarefa linhaDeTarefa = db.LinhaDeTarefa.Find(id);
+            db.LinhaDeTarefa.Remove(linhaDeTarefa);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

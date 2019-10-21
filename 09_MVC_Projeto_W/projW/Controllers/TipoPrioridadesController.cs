@@ -11,107 +11,107 @@ using projW.Models;
 
 namespace projW.Controllers
 {
-    public class ClientesController : Controller
+    public class TipoPrioridadesController : Controller
     {
         private victor_DbGesTarefas db = new victor_DbGesTarefas();
 
-        // GET: Clientes
+        // GET: TipoPrioridades
         public ActionResult Index()
         {
-            return View(db.Clientes.ToList());
+            return View(db.TiposDePrioridade.ToList());
         }
 
-        // GET: Clientes/Details/5
+        // GET: TipoPrioridades/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cliente cliente = db.Clientes.Find(id);
-            if (cliente == null)
+            TipoPrioridade tipoPrioridade = db.TiposDePrioridade.Find(id);
+            if (tipoPrioridade == null)
             {
                 return HttpNotFound();
             }
-            return View(cliente);
+            return View(tipoPrioridade);
         }
 
-        // GET: Clientes/Create
+        // GET: TipoPrioridades/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Clientes/Create
+        // POST: TipoPrioridades/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,NomeCliente,CodigoInternoCliente")] Cliente cliente)
+        public ActionResult Create([Bind(Include = "Id,DesignacaoPrioridade")] TipoPrioridade tipoPrioridade)
         {
             if (ModelState.IsValid)
             {
-                db.Clientes.Add(cliente);
+                db.TiposDePrioridade.Add(tipoPrioridade);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(cliente);
+            return View(tipoPrioridade);
         }
 
-        // GET: Clientes/Edit/5
+        // GET: TipoPrioridades/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cliente cliente = db.Clientes.Find(id);
-            if (cliente == null)
+            TipoPrioridade tipoPrioridade = db.TiposDePrioridade.Find(id);
+            if (tipoPrioridade == null)
             {
                 return HttpNotFound();
             }
-            return View(cliente);
+            return View(tipoPrioridade);
         }
 
-        // POST: Clientes/Edit/5
+        // POST: TipoPrioridades/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,NomeCliente,CodigoInternoCliente")] Cliente cliente)
+        public ActionResult Edit([Bind(Include = "Id,DesignacaoPrioridade")] TipoPrioridade tipoPrioridade)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(cliente).State = EntityState.Modified;
+                db.Entry(tipoPrioridade).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(cliente);
+            return View(tipoPrioridade);
         }
 
-        // GET: Clientes/Delete/5
+        // GET: TipoPrioridades/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cliente cliente = db.Clientes.Find(id);
-            if (cliente == null)
+            TipoPrioridade tipoPrioridade = db.TiposDePrioridade.Find(id);
+            if (tipoPrioridade == null)
             {
                 return HttpNotFound();
             }
-            return View(cliente);
+            return View(tipoPrioridade);
         }
 
-        // POST: Clientes/Delete/5
+        // POST: TipoPrioridades/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Cliente cliente = db.Clientes.Find(id);
-            db.Clientes.Remove(cliente);
+            TipoPrioridade tipoPrioridade = db.TiposDePrioridade.Find(id);
+            db.TiposDePrioridade.Remove(tipoPrioridade);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

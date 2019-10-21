@@ -28,8 +28,6 @@ namespace projW.Models
         [Display(Name = "Coima")]
         public bool SujeitaCoima { get; set; }
 
-        [Display(Name = "Prioridade")]
-        public string TipoImportancia { get; set; }
 
         public string Descritivo { get; set; }
 
@@ -39,6 +37,22 @@ namespace projW.Models
 
         public int ClienteID { get; set; }
         public virtual Cliente Cliente { get; set; }
+
+
+
+        public int TipoPrioridadeID { get; set; }
+        public virtual TipoPrioridade TipoPrioridade { get; set; }
+        
+
+        public int TipoTarefaID { get; set; }
+        public virtual TipoTarefa TipoTarefa { get; set; }
+
+        
+        public int FuncionarioID { get; set; }
+        public virtual Funcionario Funcionario { get; set; }
+
+
+        public ICollection<LinhaDeTarefa> LinhasDeTarefa { get; set; }
 
     }
 }

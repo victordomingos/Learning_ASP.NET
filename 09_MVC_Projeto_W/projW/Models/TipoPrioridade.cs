@@ -5,12 +5,10 @@ using System.Web;
 
 namespace projW.Models
 {
-    public class Cliente
+    public class TipoPrioridade
     {
         public int Id { get; set; }
-        public string NomeCliente { get; set; }
-        
-        public string CodigoInternoCliente { get; set; }
+        public string DesignacaoPrioridade { get; set; }
 
         public ICollection<Tarefa> Tarefas { get; set; }
     }
