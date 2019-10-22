@@ -14,13 +14,88 @@ namespace projW.Controllers
     public class TarefasController : Controller
     {
         private victor_DbGesTarefas db = new victor_DbGesTarefas();
-
+        
         // GET: Tarefas
-        public ActionResult Index()
+        //public ActionResult Index()
+        //{
+        //    var tarefas = db.Tarefas.Include(t => t.Cliente).Include(t => t.Funcionario).Include(t => t.TipoPrioridade).Include(t => t.TipoTarefa);
+        //    return View(tarefas.ToList());
+        //}
+        public ActionResult Index(String filtro_estado, String filtro_coima, String txt_pesquisa)
         {
+            ViewBag.TOTAL_TAREFAS = db.Tarefas.Count();
+            if (string.IsNullOrEmpty(filtro_estado))
+                { ViewBag.FILTRO_ESTADO = "todas"; }
+            else
+                { ViewBag.FILTRO_ESTADO = filtro_estado; }
+
             var tarefas = db.Tarefas.Include(t => t.Cliente).Include(t => t.Funcionario).Include(t => t.TipoPrioridade).Include(t => t.TipoTarefa);
+
+            switch (filtro_estado)
+            {
+                case "terminadas":
+                    tarefas = tarefas.Where(t => t.Estado.Equals(true));
+                    ViewBag.RADIO_TODAS = 0;
+                    ViewBag.RADIO_TERMINADAS = 1;
+                    ViewBag.RADIO_PENDENTES = 0;
+                    break;
+                case "pendentes":
+                    tarefas = tarefas.Where(t => t.Estado.Equals(false));
+                    ViewBag.RADIO_TODAS = 0;
+                    ViewBag.RADIO_TERMINADAS = 0;
+                    ViewBag.RADIO_PENDENTES = 1;
+                    break;
+                case "todas":
+                default:
+                    ViewBag.RADIO_TODAS = 1;
+                    ViewBag.RADIO_TERMINADAS = 0;
+                    ViewBag.RADIO_PENDENTES = 0;
+                    break;
+            }
+
+
+            if (string.IsNullOrEmpty(filtro_coima))
+                { ViewBag.FILTRO_COIMA = "com e sem coima"; }
+            else
+                { ViewBag.FILTRO_COIMA = filtro_coima; }
+
+            switch (filtro_coima)
+            {
+                case "com coima":
+                    tarefas = tarefas.Where(t => t.SujeitaCoima.Equals(true));
+                    ViewBag.RADIO_TODAS = 0;
+                    ViewBag.RADIO_TERMINADAS = 1;
+                    ViewBag.RADIO_PENDENTES = 0;
+                    break;
+                case "sem coima":
+                    tarefas = tarefas.Where(t => t.SujeitaCoima.Equals(false));
+                    ViewBag.RADIO_TODAS = 0;
+                    ViewBag.RADIO_TERMINADAS = 0;
+                    ViewBag.RADIO_PENDENTES = 1;
+                    break;
+                case "com e sem coima":
+                default:
+                    ViewBag.RADIO_TODAS = 1;
+                    ViewBag.RADIO_TERMINADAS = 0;
+                    ViewBag.RADIO_PENDENTES = 0;
+                    break;
+            }
+
+            if (string.IsNullOrEmpty(txt_pesquisa))
+                { ViewBag.FILTRO_PESQUISA = ""; }
+            else
+            {
+                ViewBag.FILTRO_PESQUISA = txt_pesquisa;
+                tarefas = tarefas.Where(t => t.Titulo.Contains(txt_pesquisa));
+            }
+
+
+            ViewBag.TAREFAS_FILTRADAS = tarefas.Count();
+
             return View(tarefas.ToList());
         }
+
+
 
         // GET: Tarefas/Details/5
         public ActionResult Details(int? id)
