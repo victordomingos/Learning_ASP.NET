@@ -16,16 +16,21 @@ namespace projW.Controllers
         private victor_DbGesTarefas db = new victor_DbGesTarefas();
 
         // GET: LinhasDeTarefaPorIdTarefa
-        public ActionResult Index(string tarefaId)
+        public ActionResult Index(int? tarefaId)
         {
-            
             var linhaDeTarefa = db.LinhaDeTarefa.Include(l => l.Tarefa);
 
-            if (Int32.TryParse(tarefaId, out int id))
+            if (!tarefaId.HasValue)
             {
-                linhaDeTarefa = linhaDeTarefa.Where(l => l.TarefaID == id);
+                tarefaId = -1;
+            }
+            else
+            {
                 ViewBag.TAREFAID = tarefaId;
             }
+            
+            linhaDeTarefa = linhaDeTarefa.Where(l => l.TarefaID == tarefaId);
+           
 
             return View(linhaDeTarefa.ToList());
         }
