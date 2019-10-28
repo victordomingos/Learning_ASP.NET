@@ -127,6 +127,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
+    <Compile Include="Controllers\EliminarTarefaController.cs" />
     <Compile Include="Controllers\FuncionariosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LinhaDeTarefasController.cs" />
@@ -235,6 +236,7 @@
     <Content Include="Views\TarefasPorClienteEFuncionario\Details.cshtml" />
     <Content Include="Views\TarefasPorClienteEFuncionario\Edit.cshtml" />
     <Content Include="Views\TarefasPorClienteEFuncionario\Index.cshtml" />
+    <Content Include="Views\EliminarTarefa\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

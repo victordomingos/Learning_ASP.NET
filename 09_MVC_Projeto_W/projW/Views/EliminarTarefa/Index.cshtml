@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Eliminar Tarefa";
+}
+
+<h2>Eliminar Tarefa</h2>
+
+@using (Html.BeginForm())
+{
+    if (ViewBag.STATUS > 0)
+    {
+        <p>O registo foi eliminado com sucesso!</p>
+    }
+    else if (ViewBag.STATUS == 0)
+    {
+        <p>Não foi encontrado nenhum registo com esse ID.</p>
+    }
+    else if (ViewBag.STATUS == -1)
+    {
+        <p>Ocorreu um erro!</p>
+    }
+
+
+    if (ViewBag.SHOW_CONFIRMATION == 1)
+    {
+        <h3>Tem a certeza?</h3>
+        <p>Para confirmar o procedimento de eliminação da tarefa nº @ViewBag.TAREFAID, escreva "sim": </p>
+        @Html.TextBox("really_delete")
+        <p></p>
+
+    }
+
+
+    <p>Introduza o ID da tarefa a eliminar:</p>
+
+    @Html.TextBox("tarefaId")
+    <input type="submit" name="name" value="Eliminar" />
+}
+
+
+
+
