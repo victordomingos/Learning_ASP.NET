@@ -133,6 +133,7 @@
     <Compile Include="Controllers\LinhasDeTarefaPorIdTarefaController.cs" />
     <Compile Include="Controllers\TarefasController.cs" />
     <Compile Include="Controllers\TarefasPorClienteController.cs" />
+    <Compile Include="Controllers\TarefasPorClienteEFuncionarioController.cs" />
     <Compile Include="Controllers\TipoPrioridadesController.cs" />
     <Compile Include="Controllers\TipoTarefasController.cs" />
     <Compile Include="DAL\victor_DbGesTarefas.cs" />
@@ -229,6 +230,11 @@
     <Content Include="Views\LinhasDeTarefaPorIdTarefa\Details.cshtml" />
     <Content Include="Views\LinhasDeTarefaPorIdTarefa\Edit.cshtml" />
     <Content Include="Views\LinhasDeTarefaPorIdTarefa\Index.cshtml" />
+    <Content Include="Views\TarefasPorClienteEFuncionario\Create.cshtml" />
+    <Content Include="Views\TarefasPorClienteEFuncionario\Delete.cshtml" />
+    <Content Include="Views\TarefasPorClienteEFuncionario\Details.cshtml" />
+    <Content Include="Views\TarefasPorClienteEFuncionario\Edit.cshtml" />
+    <Content Include="Views\TarefasPorClienteEFuncionario\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

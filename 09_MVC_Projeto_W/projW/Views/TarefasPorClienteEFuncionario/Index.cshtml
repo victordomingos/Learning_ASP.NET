@@ -1,10 +1,11 @@
 ﻿@model IEnumerable<projW.Models.Tarefa>
 
 @{
-    ViewBag.Title = "Tarefas por Cliente";
+    ViewBag.Title = "Tarefas por Cliente e Funcionário";
 }
 
-<h2>Tarefas por Cliente</h2>
+
+<h2>Tarefas por Cliente e Funcionário</h2>
 @using (Html.BeginForm())
 {
     <div class="container">
@@ -27,9 +28,28 @@
 
                 @if (ViewBag.CLIENTEID != null)
                 {
-                    <p>Cliente nº @ViewBag.CLIENTEID: @ViewBag.TOTAL tarefas.</p>
+                    <p>Cliente nº @ViewBag.CLIENTEID.</p>
                 }
 
+
+            </div>
+
+
+            <div class="col-md pull-right">
+
+                Filtrar por funcionário:
+                @Html.DropDownList("FuncionarioID",
+                           (SelectList)ViewBag.FUNCIONARIOS,
+                           htmlAttributes: new { @class = "form-control", @onchange = "this.form.submit();" }
+                           )
+
+
+                @if (ViewBag.FUNCIONARIOID != null)
+                {
+                    <p>Funcionário nº @ViewBag.FUNCIONARIOID.</p>
+                }
+
+                <p>@ViewBag.TOTAL tarefas.</p>
 
             </div>
 
@@ -38,6 +58,9 @@
 }
 
 
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
 <table class="table">
     <tr>
         <th>

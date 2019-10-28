@@ -11,17 +11,20 @@ using projW.Models;
 
 namespace projW.Controllers
 {
-    public class TarefasPorClienteController : Controller
+    public class TarefasPorClienteEFuncionarioController : Controller
     {
         private victor_DbGesTarefas db = new victor_DbGesTarefas();
 
-        // GET: TarefasPorCliente
-        public ActionResult Index(int? ClienteID)
+        // GET: TarefasPorClienteEFuncionario
+        public ActionResult Index(int? ClienteID, int? FuncionarioID)
         {
             List<Cliente> listaClientes = db.Clientes.ToList();
-            var sLista = new SelectList(listaClientes, "Id", "NomeCliente");
-            ViewBag.CLIENTES = sLista;
+            var sLista_clientes = new SelectList(listaClientes, "Id", "NomeCliente");
+            ViewBag.CLIENTES = sLista_clientes;
 
+            List<Funcionario> listaFuncionarios = db.Funcionarios.ToList();
+            var sLista_funcionarios = new SelectList(listaFuncionarios, "Id", "NomeFuncionario");
+            ViewBag.FUNCIONARIOS = sLista_funcionarios;
 
 
             var tarefas = db.Tarefas.Include(t => t.Cliente)
@@ -34,14 +37,20 @@ namespace projW.Controllers
                 tarefas = tarefas.Where(t => t.Cliente.Id == ClienteID);
             }
 
+            if (FuncionarioID.HasValue)
+            {
+                tarefas = tarefas.Where(t => t.Funcionario.Id == FuncionarioID);
+            }
+
 
             ViewBag.TOTAL = tarefas.Count();
             ViewBag.CLIENTEID = ClienteID;
-            
+            ViewBag.FUNCIONARIOID = FuncionarioID;
+
             return View(tarefas.ToList());
         }
 
-        // GET: TarefasPorCliente/Details/5
+        // GET: TarefasPorClienteEFuncionario/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -56,7 +65,7 @@ namespace projW.Controllers
             return View(tarefa);
         }
 
-        // GET: TarefasPorCliente/Create
+        // GET: TarefasPorClienteEFuncionario/Create
         public ActionResult Create()
         {
             ViewBag.ClienteID = new SelectList(db.Clientes, "Id", "NomeCliente");
@@ -66,7 +75,7 @@ namespace projW.Controllers
             return View();
         }
 
-        // POST: TarefasPorCliente/Create
+        // POST: TarefasPorClienteEFuncionario/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -87,7 +96,7 @@ namespace projW.Controllers
             return View(tarefa);
         }
 
-        // GET: TarefasPorCliente/Edit/5
+        // GET: TarefasPorClienteEFuncionario/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -106,7 +115,7 @@ namespace projW.Controllers
             return View(tarefa);
         }
 
-        // POST: TarefasPorCliente/Edit/5
+        // POST: TarefasPorClienteEFuncionario/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -126,7 +135,7 @@ namespace projW.Controllers
             return View(tarefa);
         }
 
-        // GET: TarefasPorCliente/Delete/5
+        // GET: TarefasPorClienteEFuncionario/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -141,7 +150,7 @@ namespace projW.Controllers
             return View(tarefa);
         }
 
-        // POST: TarefasPorCliente/Delete/5
+        // POST: TarefasPorClienteEFuncionario/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
