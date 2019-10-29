@@ -1,4 +1,5 @@
-﻿using System;
+﻿using projW.MyUtil;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,6 +11,11 @@ namespace projW.Controllers
     {
         public ActionResult Index()
         {
+            TarefasFuncs tf = new TarefasFuncs();
+
+            ViewBag.SYSTEM_TIME = DateTime.Now.ToString("hh:mm");
+            ViewBag.GREETING = tf.GoodMorning();
+
             return View();
         }
 

@@ -152,6 +152,7 @@
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Funcionario.cs" />
     <Compile Include="Models\Tarefa.cs" />
+    <Compile Include="MyUtil\TarefasFuncs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -240,7 +241,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="MyUtil\" />
     <Folder Include="ViewModel\" />
   </ItemGroup>
   <ItemGroup>

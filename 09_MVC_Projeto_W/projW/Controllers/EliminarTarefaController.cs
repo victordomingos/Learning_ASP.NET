@@ -1,4 +1,5 @@
 ﻿using projW.DAL;
+using projW.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,15 +19,28 @@ namespace projW.Controllers
 
             if (tarefaId.HasValue)
             {
+                Tarefa tarefa;
+                try
+                {
+                    tarefa = db.Tarefas.Where(t => t.ID == tarefaId).First();
+                    ViewBag.STATUS = 0;
+                    ViewBag.SHOW_CONFIRMATION = 1;
+                }
+                catch (InvalidOperationException)
+                {
+                    ViewBag.STATUS = 0;
+                    ViewBag.SHOW_CONFIRMATION = 0;
+                    return View();
+                }
+                
+
                 if (!String.IsNullOrEmpty(really_delete) && really_delete == "sim")
                 {
                     ViewBag.TAREFAID = tarefaId.ToString();
                     try
                     {
-                        var tarefa = db.Tarefas.Where(t => t.ID == tarefaId).First();
                         db.Tarefas.Remove(tarefa);
                         ViewBag.STATUS = db.SaveChanges();
-
                         ViewBag.SHOW_CONFIRMATION = 0;
                     }
                     catch (InvalidOperationException)
@@ -43,7 +57,7 @@ namespace projW.Controllers
                 }
                 else
                 {
-                    ViewBag.TAREFAID = tarefaId.ToString();
+                    ViewBag.TAREFAID = tarefa.ID.ToString();
                     ViewBag.SHOW_CONFIRMATION = 1;
                 }
             }
