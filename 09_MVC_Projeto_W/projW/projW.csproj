@@ -152,6 +152,8 @@
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Funcionario.cs" />
     <Compile Include="Models\Tarefa.cs" />
+    <Compile Include="MyUtil\config.cs" />
+    <Compile Include="MyUtil\MyDatabase.cs" />
     <Compile Include="MyUtil\TarefasFuncs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

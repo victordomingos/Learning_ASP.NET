@@ -1,4 +1,5 @@
-﻿using projW.MyUtil;
+﻿using DButils;
+using projW.MyUtil;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +13,13 @@ namespace projW.Controllers
         public ActionResult Index()
         {
             TarefasFuncs tf = new TarefasFuncs();
+            MyDatabase db2 = new MyDatabase();
 
             ViewBag.SYSTEM_TIME = DateTime.Now.ToString("hh:mm");
             ViewBag.GREETING = tf.GoodMorning();
+
+            string ssql = "SELECT COUNT(*) FROM Tarefas";
+            ViewBag.TASK_COUNT = db2.ObterDados(ssql).Rows[0][0].ToString();
 
             return View();
         }
