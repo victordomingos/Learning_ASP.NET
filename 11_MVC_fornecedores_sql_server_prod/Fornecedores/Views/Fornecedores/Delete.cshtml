@@ -1,0 +1,40 @@
+﻿@model Fornecedores.Models.Fornecedor
+
+@{
+    ViewBag.Title = "Eliminar";
+}
+
+<h2>Eliminar</h2>
+
+<h3>Tem a certeza de que pretende eliminar este registo?</h3>
+<div>
+    <h4>Fornecedor</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nome_do_fornecedor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nome_do_fornecedor)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            @Html.ActionLink("Regressar à Lista", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Fornecedores.Models.Fornecedor>
+
+@{
+    ViewBag.Title = "Fornecedores";
+}
+
+<h2>Fornecedores</h2>
+
+<p>
+    @Html.ActionLink("Criar Novo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.codigo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nome_do_fornecedor)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.codigo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nome_do_fornecedor)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
