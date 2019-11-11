@@ -1,0 +1,31 @@
+﻿@model projW.ViewModel.FuncionarioTarefas
+
+
+@{
+    ViewBag.Title = "Tarefas Por Funcionario Mes Atual ViewModel";
+}
+
+<h2>Tarefas Por Funcionario com prazo Mes Atual (ViewModel)</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.DropDownList("id_funcionario",
+            (SelectList)ViewBag.FUNCIONARIOS,
+            htmlAttributes: new { @class = "form-control", @onchange = "this.form.submit();" });
+}
+
+
+@foreach (var t in Model.Tarefas)
+{
+    <p>
+        @Html.ActionLink(t.Titulo, "Index", new { id = t.ID })
+    </p>
+
+}
+
+<h1>Linhas</h1>
+
+@foreach (var linha in Model.LinhasDeTarefa)
+{
+    @linha
+}
