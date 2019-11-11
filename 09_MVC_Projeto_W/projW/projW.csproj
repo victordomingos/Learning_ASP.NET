@@ -135,6 +135,7 @@
     <Compile Include="Controllers\TarefasController.cs" />
     <Compile Include="Controllers\TarefasPorClienteController.cs" />
     <Compile Include="Controllers\TarefasPorClienteEFuncionarioController.cs" />
+    <Compile Include="Controllers\TarefasPorFuncionarioMesAtualController.cs" />
     <Compile Include="Controllers\TipoPrioridadesController.cs" />
     <Compile Include="Controllers\TipoTarefasController.cs" />
     <Compile Include="DAL\victor_DbGesTarefas.cs" />
@@ -240,6 +241,11 @@
     <Content Include="Views\TarefasPorClienteEFuncionario\Edit.cshtml" />
     <Content Include="Views\TarefasPorClienteEFuncionario\Index.cshtml" />
     <Content Include="Views\EliminarTarefa\Index.cshtml" />
+    <Content Include="Views\TarefasPorFuncionarioMesAtual\Create.cshtml" />
+    <Content Include="Views\TarefasPorFuncionarioMesAtual\Delete.cshtml" />
+    <Content Include="Views\TarefasPorFuncionarioMesAtual\Details.cshtml" />
+    <Content Include="Views\TarefasPorFuncionarioMesAtual\Edit.cshtml" />
+    <Content Include="Views\TarefasPorFuncionarioMesAtual\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,104 @@
+﻿@model IEnumerable<projW.Models.Tarefa>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Tarefas for funcionário (apenas com prazo a expirar no mês atual)</h2>
+
+
+@using(@Html.BeginForm())
+{
+
+    @Html.DropDownList("FuncionarioId",
+            (SelectList)ViewBag.FUNCIONARIOS,
+            htmlAttributes: new { @class = "form-control", @onchange = "this.form.submit();" });
+
+}
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Cliente.NomeCliente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Funcionario.NomeFuncionario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TipoPrioridade.DesignacaoPrioridade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TipoTarefa.DesignacaoTipoTarefa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Titulo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Equipa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataRegisto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataLimite)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SujeitaCoima)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descritivo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Estado)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cliente.NomeCliente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Funcionario.NomeFuncionario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TipoPrioridade.DesignacaoPrioridade)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TipoTarefa.DesignacaoTipoTarefa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Titulo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Equipa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataRegisto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataLimite)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SujeitaCoima)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descritivo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Estado)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
