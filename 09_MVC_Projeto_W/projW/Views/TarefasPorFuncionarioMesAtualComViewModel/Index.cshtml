@@ -7,25 +7,33 @@
 
 <h2>Tarefas Por Funcionario com prazo Mes Atual (ViewModel)</h2>
 
+
 @using (Html.BeginForm())
 {
-    @Html.DropDownList("id_funcionario",
+   
+    @Html.DropDownList("drop_funcionario",
             (SelectList)ViewBag.FUNCIONARIOS,
             htmlAttributes: new { @class = "form-control", @onchange = "this.form.submit();" });
+
+    foreach (var t in Model.Tarefas)
+    {
+        <ul>
+            <li>@Html.ActionLink(t.Titulo, "Index", new { id = t.ID, link_funcionario = ViewBag.ID_FUNCIONARIO })</li>
+        </ul>
+
+    }
 }
 
 
-@foreach (var t in Model.Tarefas)
+@if (ViewBag.ID_TAREFA > 0 && Model.LinhasDeTarefa.Count() > 0)
 {
-    <p>
-        @Html.ActionLink(t.Titulo, "Index", new { id = t.ID })
-    </p>
+    <h1>Sub-tarefas:</h1>
 
-}
+    foreach (var linha in Model.LinhasDeTarefa)
+    {
+        <ul>
+            <li>@linha.Descritivo</li>
+        </ul>
+    }
 
-<h1>Linhas</h1>
-
-@foreach (var linha in Model.LinhasDeTarefa)
-{
-    @linha
 }

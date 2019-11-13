@@ -13,13 +13,52 @@ namespace projW.Controllers
         private victor_DbGesTarefas db = new victor_DbGesTarefas();
 
         // GET: TarefasPorFuncionarioMesAtualComViewModel
-        public ActionResult Index(int? id_funcionario, int? id_tarefa)
+        public ActionResult Index(int? drop_funcionario, int? id, int? link_funcionario)
         {
             var viewModel = new FuncionarioTarefas();
-            ViewBag.FUNCIONARIOS = new SelectList(db.Funcionarios, "Id", "NomeFuncionario");
+            int id_func;
 
-            viewModel.Tarefas = db.Tarefas.Where(t => t.FuncionarioID == id_funcionario);
-            viewModel.LinhasDeTarefa = db.LinhaDeTarefa.Where(l => l.TarefaID == id_tarefa);
+            try
+            {
+                id_func = db.Funcionarios.FirstOrDefault().Id;
+            }
+            catch(NullReferenceException)
+            {
+                id_func = -1;
+            }
+
+            ViewBag.ID_FUNCIONARIO = id_func;
+            if (link_funcionario.HasValue)
+            {
+                ViewBag.ID_FUNCIONARIO = link_funcionario;
+                id_func = Convert.ToInt32(link_funcionario);
+            }
+
+            ViewBag.DROP_FUNCIONARIO = drop_funcionario;
+            if (drop_funcionario > 0)
+            {
+                ViewBag.ID_FUNCIONARIO = drop_funcionario;
+                id_func = Convert.ToInt32(drop_funcionario);
+            }
+
+            ViewBag.FUNCIONARIOS = new SelectList(db.Funcionarios, "Id", "NomeFuncionario", id_func);
+
+            
+
+            if (id.HasValue && id != -1)
+            {
+                if (drop_funcionario > 0)
+                    ViewBag.ID_TAREFA = -1;
+                else
+                    ViewBag.ID_TAREFA = id;
+            }
+            else
+            {
+                ViewBag.ID_TAREFA = -1;
+            }
+
+            viewModel.Tarefas = db.Tarefas.Where(t => t.FuncionarioID == id_func);
+            viewModel.LinhasDeTarefa = db.LinhaDeTarefa.Where(l => l.TarefaID == id);
 
             return View(viewModel);
         }
