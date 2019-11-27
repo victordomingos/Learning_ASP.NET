@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using DbUtils;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace DButils

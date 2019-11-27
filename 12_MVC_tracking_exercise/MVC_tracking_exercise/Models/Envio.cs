@@ -9,6 +9,9 @@ namespace MVC_tracking_exercise.Models
     {
         public int Id { get; set; }
         public string Codigo { get; set; }
+        public string Estado { get; set; }
+        public DateTime DataExpedicao { get; set; }
+
 
         public int DestinatarioId { get; set; }
         public virtual Destinatario Destinatario { get; set; }
