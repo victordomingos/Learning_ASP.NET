@@ -7,13 +7,13 @@ namespace MVC_tracking_exercise.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class one : IMigrationMetadata
+    public sealed partial class Zero : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(one));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Zero));
         
         string IMigrationMetadata.Id
         {
-            get { return "201911260108451_one"; }
+            get { return "201911271441017_Zero"; }
         }
         
         string IMigrationMetadata.Source

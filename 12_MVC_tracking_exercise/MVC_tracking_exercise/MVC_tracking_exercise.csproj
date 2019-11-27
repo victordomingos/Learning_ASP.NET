@@ -131,13 +131,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201911260108451_one.cs" />
-    <Compile Include="Migrations\201911260108451_one.Designer.cs">
-      <DependentUpon>201911260108451_one.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911260109202_two.cs" />
-    <Compile Include="Migrations\201911260109202_two.Designer.cs">
-      <DependentUpon>201911260109202_two.cs</DependentUpon>
+    <Compile Include="Migrations\201911271441017_Zero.cs" />
+    <Compile Include="Migrations\201911271441017_Zero.Designer.cs">
+      <DependentUpon>201911271441017_Zero.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Destinatario.cs" />
@@ -198,11 +194,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201911260108451_one.resx">
-      <DependentUpon>201911260108451_one.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911260109202_two.resx">
-      <DependentUpon>201911260109202_two.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201911271441017_Zero.resx">
+      <DependentUpon>201911271441017_Zero.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
