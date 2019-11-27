@@ -126,14 +126,16 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\DestinatariosController.cs" />
+    <Compile Include="Controllers\EnviosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DAL\DbTracking.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201911271503389_Zero.cs" />
-    <Compile Include="Migrations\201911271503389_Zero.Designer.cs">
-      <DependentUpon>201911271503389_Zero.cs</DependentUpon>
+    <Compile Include="Migrations\201911271514165_Zero.cs" />
+    <Compile Include="Migrations\201911271514165_Zero.Designer.cs">
+      <DependentUpon>201911271514165_Zero.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Destinatario.cs" />
@@ -176,6 +178,16 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Envios\Create.cshtml" />
+    <Content Include="Views\Envios\Delete.cshtml" />
+    <Content Include="Views\Envios\Details.cshtml" />
+    <Content Include="Views\Envios\Edit.cshtml" />
+    <Content Include="Views\Envios\Index.cshtml" />
+    <Content Include="Views\Destinatarios\Create.cshtml" />
+    <Content Include="Views\Destinatarios\Delete.cshtml" />
+    <Content Include="Views\Destinatarios\Details.cshtml" />
+    <Content Include="Views\Destinatarios\Edit.cshtml" />
+    <Content Include="Views\Destinatarios\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -194,8 +206,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201911271503389_Zero.resx">
-      <DependentUpon>201911271503389_Zero.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201911271514165_Zero.resx">
+      <DependentUpon>201911271514165_Zero.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

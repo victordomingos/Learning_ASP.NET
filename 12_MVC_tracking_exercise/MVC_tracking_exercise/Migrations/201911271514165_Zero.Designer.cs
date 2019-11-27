@@ -13,7 +13,7 @@ namespace MVC_tracking_exercise.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201911271503389_Zero"; }
+            get { return "201911271514165_Zero"; }
         }
         
         string IMigrationMetadata.Source
