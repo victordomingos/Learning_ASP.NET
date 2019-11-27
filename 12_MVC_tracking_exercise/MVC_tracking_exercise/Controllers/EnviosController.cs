@@ -19,15 +19,15 @@ namespace MVC_tracking_exercise.Controllers
         public ActionResult Index(string drop_estado)
         {
             var envios = db.Envios.Include(e => e.Destinatario);
-                        
+            ViewBag.NUM_TOTAL = envios.Count();     // Count all records.       
             ViewBag.ESTADOS = new SelectList(db.Envios, "Estado", "Estado");
             
-
             if(!string.IsNullOrEmpty(drop_estado))
             {
                 envios = envios.Where(e => e.Estado == drop_estado);
             }
 
+            ViewBag.NUM_FILTRADAS = envios.Count(); // Count Filtered records
 
             return View(envios.ToList());
         }
