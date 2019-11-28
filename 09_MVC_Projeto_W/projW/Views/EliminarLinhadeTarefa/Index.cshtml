@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "Eliminar Linha de Tarefa";
+}
+
+<h2>Eliminar Linha de Tarefa</h2>
+
+@using (Html.BeginForm())
+{
+    @ViewBag.MSG
+   
+    if (ViewBag.SHOW_CONFIRMATION == 1)
+    {
+        if (!String.IsNullOrEmpty(ViewBag.LINHAID))
+        {
+            <h3>Tem a certeza?</h3>
+            <p>Para confirmar o procedimento de eliminação da linha de tarefa nº @ViewBag.LINHAID, escreva "sim": </p>
+            @Html.TextBox("apagarMesmo")
+            <p></p>
+        }
+
+    }
+
+    <p>Introduza o ID da linha de tarefa a eliminar:</p>
+
+    @Html.TextBox("linhaId")
+    <input type="submit" name="name" value="Eliminar" />
+}
+
+
+
+

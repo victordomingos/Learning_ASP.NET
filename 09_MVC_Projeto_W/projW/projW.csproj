@@ -127,11 +127,14 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
+    <Compile Include="Controllers\ContarTarefasPorTipoEPrioridadeController.cs" />
+    <Compile Include="Controllers\EliminarLinhadeTarefaController.cs" />
     <Compile Include="Controllers\EliminarTarefaController.cs" />
     <Compile Include="Controllers\FuncionariosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LinhaDeTarefasController.cs" />
     <Compile Include="Controllers\LinhasDeTarefaPorIdTarefaController.cs" />
+    <Compile Include="Controllers\TarefasClienteFuncionarioRadioOrdenaController.cs" />
     <Compile Include="Controllers\TarefasController.cs" />
     <Compile Include="Controllers\TarefasPorClienteController.cs" />
     <Compile Include="Controllers\TarefasPorClienteEFuncionarioController.cs" />
@@ -249,6 +252,13 @@
     <Content Include="Views\TarefasPorFuncionarioMesAtual\Edit.cshtml" />
     <Content Include="Views\TarefasPorFuncionarioMesAtual\Index.cshtml" />
     <Content Include="Views\TarefasPorFuncionarioMesAtualComViewModel\Index.cshtml" />
+    <Content Include="Views\EliminarLinhadeTarefa\Index.cshtml" />
+    <Content Include="Views\TarefasClienteFuncionarioRadioOrdena\Create.cshtml" />
+    <Content Include="Views\TarefasClienteFuncionarioRadioOrdena\Delete.cshtml" />
+    <Content Include="Views\TarefasClienteFuncionarioRadioOrdena\Details.cshtml" />
+    <Content Include="Views\TarefasClienteFuncionarioRadioOrdena\Edit.cshtml" />
+    <Content Include="Views\TarefasClienteFuncionarioRadioOrdena\Index.cshtml" />
+    <Content Include="Views\ContarTarefasPorTipoEPrioridade\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
